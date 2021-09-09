@@ -4,7 +4,7 @@ const Contacts = () => {
   return (
     <>
       <section className="contacts">
-        <h1>Contact Me Bro</h1>
+        <h1>Contact Me </h1>
         <ul>
           <li>
             <a href="tel:082245793981">
