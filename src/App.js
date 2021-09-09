@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-function App() {
+// From Components
+import Homepage from "./components/Homepage";
+import Menu from "./components/Menu";
+
+// From Pages
+import Projects from "./pages/Projects";
+import Error from "./pages/Error";
+import Contacts from "./pages/Contacts";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Menu />
+      <Switch>
+        {/* maksud dari exact adalah agar component homepage hanya akan dirender ketika berada pada route atau path "/" */}
+        <Route path="/" exact>
+          <Homepage />
+        </Route>
+        <Route path="/projects">
+          <Projects />
+        </Route>
+        <Route path="/contact-me">
+          <Contacts />
+        </Route>
+        <Route path="*">
+          <Error />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
